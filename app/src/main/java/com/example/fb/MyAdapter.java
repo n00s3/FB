@@ -16,8 +16,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     ArrayList<Item> items = new ArrayList<Item>();
     static OnItemClickListener listener;
 
-    public MyAdapter(Context context){
+    public MyAdapter(Context context, ArrayList<Item> items){
         this.context = context;
+        this.items = items;
     }
 
     @Override
@@ -50,14 +51,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txt1;
-        TextView txt2;
+        TextView txt_model;
+        TextView txt_cat;
+        TextView txt_channel;
+        TextView txt_capacity;
+        TextView txt_grade;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            txt1 = itemView.findViewById(R.id.item_text1);
-            txt2 = itemView.findViewById(R.id.item_text2);
+            txt_model = itemView.findViewById(R.id.item_model);
+            txt_cat = itemView.findViewById(R.id.item_cat);
+            txt_channel = itemView.findViewById(R.id.item_channel);
+            txt_capacity = itemView.findViewById(R.id.item_capacity);
+            txt_grade = itemView.findViewById(R.id.item_grade);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -71,11 +79,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         }
 
         public void setItem(Item item){
-            txt1.setText(item.text1);
-            txt2.setText(item.text2);
+            txt_model.setText(txtChange(item.getModel()));
+            txt_cat.setText(txtChange(item.getCategory()));
+            txt_channel.setText(txtChange(item.getChannel()));
+            txt_capacity.setText(txtChange(item.getCapacity()));
+            txt_grade.setText(txtChange(item.getGrade()));
         }
     }
 
+    public static String txtChange(String str) {
+        if (str.equals(""))
+            str = "empty";
+        return str;
+    }
     
     // 리스너
     public void setOnItemClickListener(OnItemClickListener listener){
