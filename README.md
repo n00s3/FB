@@ -1,11 +1,12 @@
 # 20-12-27
-## Firebase 연동
+### Firebase 연동
 ### 회원가입, 로그인 기능 추가
 ### 로그아웃 기능 추가
-## 로딩 바 추가
-## RecyclerView 추가 / 어댑터 추가
+### 로딩 바 추가
+### RecyclerView 추가 / 어댑터 추가
 ---
 # 21-01-02
-## Firebase 데이터 불러오기 기능 추가
-## ResultActivity(가격 계산) 추가
-## 디자인 개선
+### Firebase 데이터 불러오기 기능 추가
+### ResultActivity(가격 계산) 추가
+### 디자인 개선
+### 네비게이션 바 추가
