@@ -2,12 +2,17 @@ package com.example.fb;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -50,13 +55,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_main);
 
         // login check
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             startLoginAcitivy();
         }
+        macCheck();
+
+
+        Log.d(TAG, "MAC: " + getMAC());
 
         btn = findViewById(R.id.button_dim3);
 
@@ -175,6 +184,14 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    @Override public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START))
+            drawer.closeDrawer((GravityCompat.START));
+        else
+            super.onBackPressed();
+    }
+
     private void loadCollection(String name, String sort_field) {
         item_arr.clear();
         final RelativeLayout loderLayout = findViewById(R.id.loderLayout);
@@ -243,6 +260,30 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void macCheck() {
+        String mac = getMAC();
+        DocumentReference documentReference = db.collection("MAC").document(mac);
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        startToast("MAC 인증 성공");
+                    }
+                    else {
+                        startToast("MAC 인증 실패");
+                        FirebaseAuth.getInstance().signOut();
+                        startLoginAcitivy();
+                        Log.d(TAG, "no mac list");
+                    }
+                }
+                else {
+                    Log.d(TAG, "fail");
+                }
+            }
+        });
+    }
     
 
     private void buttonChecker(View v) {
@@ -253,12 +294,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         else {
-            pre_v.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            pre_v.setBackgroundColor(getResources().getColor(R.color.purple_500));
             pre_v = v;
             v.setBackgroundColor(getResources().getColor(R.color.teal_200));
         }
     }
 
+
+    private String getMAC(){
+        WifiManager mng = (WifiManager) getSystemService(WIFI_SERVICE);
+        WifiInfo info = mng.getConnectionInfo();
+        String mac = info.getMacAddress();
+
+        return mac;
+    }
 
     private void startToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();

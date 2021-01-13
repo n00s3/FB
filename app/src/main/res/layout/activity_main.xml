@@ -25,80 +25,81 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="100dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/button_policy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
+                    android:layout_gravity="top"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:text="정책할인"
-                    android:textColor="#000000"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/button_20dim"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="20년형 딤채"
-                    android:textColor="#000000"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/button_praud"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="프라우드"
-                    android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textColor="@color/txtColor"
+                    android:textSize="25dp"
                     android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/button_dim3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
+                    android:layout_gravity="top"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:text="딤채 (3개 지점)"
-                    android:textColor="#000000"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/button_dimCook"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="딤채쿡"
-                    android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textColor="@color/txtColor"
+                    android:textSize="25dp"
                     android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/button_dim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
+                    android:layout_gravity="top"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:text="딤채"
-                    android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textColor="@color/txtColor"
+                    android:textSize="25dp"
                     android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/button_praud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="프라우드"
+                    android:textColor="@color/txtColor"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/button_air"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="에어컨"
+                    android:textColor="@color/txtColor"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/button_dimCook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="딤채쿡"
+                    android:textColor="@color/txtColor"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -107,77 +108,83 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button_air"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="에어컨"
-                    android:textColor="#000000"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-
-                <Button
                     android:id="@+id/button_ref"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="top"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:text="냉장고, 냉동고"
-                    android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textColor="@color/txtColor"
+                    android:textSize="25dp"
                     android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/button_wash"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="top"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:text="세탁기"
-                    android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textColor="@color/txtColor"
+                    android:textSize="25dp"
                     android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/button_etc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="top"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:text="기타소물"
-                    android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textColor="@color/txtColor"
+                    android:textSize="25dp"
                     android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/button_exh"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="top"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:text="전시품"
-                    android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textColor="@color/txtColor"
+                    android:textSize="25dp"
                     android:textStyle="bold" />
+
                 <Button
                     android:id="@+id/button_winia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="top"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:text="위니아전자"
-                    android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textColor="@color/txtColor"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/button_20dim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="20년형 딤채"
+                    android:textColor="@color/txtColor"
+                    android:textSize="25dp"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
-                android:layout_weight="3"
                 android:orientation="horizontal">
 
                 <TextView
@@ -189,7 +196,7 @@
                     android:layout_weight="1"
                     android:text="모델"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="22dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -201,7 +208,7 @@
                     android:layout_weight="1"
                     android:text="카테고리"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="22dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -213,7 +220,7 @@
                     android:layout_weight="1"
                     android:text="채널"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="22dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -225,7 +232,7 @@
                     android:layout_weight="1"
                     android:text="용량"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="22dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -237,15 +244,14 @@
                     android:layout_weight="1"
                     android:text="등급"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="22dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_height="match_parent" />
 
         </LinearLayout>
 

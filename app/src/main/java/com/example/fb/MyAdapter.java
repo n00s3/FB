@@ -88,8 +88,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     }
 
     public static String txtChange(String str) {
-        if (str.equals(""))
-            str = "empty";
+//        if (str.equals(""))
+//            str = "empty";
         return str;
     }
     
