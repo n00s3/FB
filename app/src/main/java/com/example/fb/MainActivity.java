@@ -14,6 +14,7 @@ import android.graphics.Color;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,7 +49,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
 
     private TextView nav_header_id_text;
+    private TextView nav_header_mac_text;
     private Button btn;
+    private Button last_btn;
     private View pre_v;
     private boolean bool = true;    // button check
     private boolean auth_check = false;
@@ -62,13 +65,13 @@ public class MainActivity extends AppCompatActivity {
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             startLoginAcitivy();
         }
-        macCheck();
+//
+        stateCheck();
 
 
-        Log.d(TAG, "MAC: " + getMAC());
+//        Log.d(TAG, "MAC: " + getMAC());
 
         btn = findViewById(R.id.button_dim3);
-
 
         recyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -89,11 +92,12 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button_policy).setOnClickListener(onClickListener);
         findViewById(R.id.button_winia).setOnClickListener(onClickListener);
 
-
         // 네비게이션
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View nav_header_view = navigationView.getHeaderView(0);
         nav_header_id_text = (TextView) nav_header_view.findViewById(R.id.nav_header);
+        nav_header_mac_text = (TextView) nav_header_view.findViewById(R.id.textMac);
+        nav_header_mac_text.setText(getDeviceID());
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
@@ -111,14 +115,13 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-
         authChecker();  // uid check (name, readable)
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            last_btn = (Button)v;
             switch (v.getId()) {
                 case R.id.button_dim:
                     loadCollection("dimchae", "capacity");
@@ -211,10 +214,9 @@ public class MainActivity extends AppCompatActivity {
                                 if (!item.getChannel().equals("stop"))
                                     item_arr.add(item);
 //                                Log.d(TAG, item.getCapacity());
-
                             }
                         } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
+//                            Log.d(TAG, "Error getting documents: ", task.getException());
                         }
 
                         ////
@@ -250,36 +252,37 @@ public class MainActivity extends AppCompatActivity {
                         else
                             btn.setVisibility(View.GONE);
                     } else {
-                        Log.d(TAG, "fail");
+//                        Log.d(TAG, "fail");
                     }
                 }
                 else {
-                    Log.d(TAG, "fail");
+//                    Log.d(TAG, "fail");
                 }
             }
         });
     }
 
-    private void macCheck() {
-        String mac = getMAC();
-        DocumentReference documentReference = db.collection("MAC").document(mac);
+    private void stateCheck() {
+        DocumentReference documentReference = db.collection("DeviceID").document(getDeviceID());
         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        startToast("MAC 인증 성공");
-                    }
-                    else {
-                        startToast("MAC 인증 실패");
+                        startToast("인증 성공");
+                    } else {
+                        startToast("인증 실패-1");
                         FirebaseAuth.getInstance().signOut();
                         startLoginAcitivy();
-                        Log.d(TAG, "no mac list");
+//                        Log.d(TAG, "fail");
                     }
                 }
                 else {
-                    Log.d(TAG, "fail");
+                    startToast("인증 실패-2");
+                    FirebaseAuth.getInstance().signOut();
+                    startLoginAcitivy();
+//                    Log.d(TAG, "fail");
                 }
             }
         });
@@ -301,12 +304,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private String getMAC(){
-        WifiManager mng = (WifiManager) getSystemService(WIFI_SERVICE);
-        WifiInfo info = mng.getConnectionInfo();
-        String mac = info.getMacAddress();
-
-        return mac;
+    private String getDeviceID(){
+        return Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
     }
 
     private void startToast(String msg) {
@@ -325,7 +324,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void startResultAcitivy(Item item) {
         Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
+        item.setSale_price(last_btn.getText().toString());
         intent.putExtra("sendItem", item);
+//        Log.d("공지", item.getSale_price());
         startActivity(intent);
     }
 }

@@ -55,7 +55,7 @@ public class Navi extends AppCompatActivity {
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Log.d("NAVI", "home");
+//            Log.d("NAVI", "home");
         }
     };
     @Override

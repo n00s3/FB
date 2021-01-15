@@ -73,7 +73,7 @@ public class SignUpAcitivy extends AppCompatActivity {
                                 loderLayout.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
-                                    Log.d(TAG, "createUserWithEmail:success");
+//                                    Log.d(TAG, "createUserWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     startToast("회원가입을 축하합니다.");
                                     startLoginActivity();

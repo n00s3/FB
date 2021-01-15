@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:screenOrientation="landscape"
+    android:theme="@android:style/Theme.NoTitleBar"
+    tools:context=".ResultActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textCat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:background="@drawable/round_"
+                android:gravity="center"
+                android:text="딤채"
+                android:textColor="#FFFFFF"
+                android:textSize="45dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textModel"
+                android:layout_width="942dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:text="BDQ57DVCES"
+                android:textColor="#000000"
+                android:textSize="50dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#000000" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtViewPrice"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_"
+                    android:gravity="clip_vertical|center_horizontal"
+                    android:text="정가"
+                    android:textColor="#FFFFFF"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_weight="5"
+                    android:gravity="right"
+                    android:text="10,000,000원"
+                    android:textColor="#B5B5B5"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="500dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtViewSale1"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_"
+                    android:gravity="center"
+                    android:text="SALE1"
+                    android:textColor="#FFFFFF"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textSale1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_weight="5"
+                    android:gravity="right"
+                    android:text="-3,000원"
+                    android:textColor="#000000"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="500dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtViewSale2"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_"
+                    android:gravity="center"
+                    android:text="SALE2"
+                    android:textColor="#FFFFFF"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textSale2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_weight="5"
+                    android:gravity="right"
+                    android:text="-400,000원"
+                    android:textColor="#000000"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="500dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtViewSale3"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_"
+                    android:gravity="center"
+                    android:text="SALE3"
+                    android:textColor="#FFFFFF"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textSale3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_weight="5"
+                    android:gravity="right"
+                    android:text="-100,000원"
+                    android:textColor="#000000"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view6"
+                    android:layout_width="500dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="1500dp"
+                android:layout_height="3dp"
+                android:layout_gravity="center"
+                android:background="#B5B5B5" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="200dp"
+                    android:layout_weight="1"
+                    android:gravity="center|top"
+                    android:text="최종가"
+                    android:textColor="#000000"
+                    android:textSize="50dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center|top"
+                    android:text="500,000원"
+                    android:textColor="#1B49D3"
+                    android:textSize="50dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_margin="10dp"
+            android:gravity="top"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView35"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="NOTICE"
+                    android:textColor="#1B49D3"
+                    android:textSize="35dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtNotice1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textColor="#000000"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtNotice2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textColor="#000000"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtNotice3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textColor="#000000"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_stock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_margin="10dp"
+                android:layout_weight="2"
+                android:background="@drawable/button_color"
+                android:text="재고확인"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_calc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_margin="10dp"
+                android:layout_weight="2"
+                android:background="@drawable/button_color"
+                android:text="계산기"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_card_policy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_margin="10dp"
+                android:layout_weight="2"
+                android:background="@drawable/button_color"
+                android:text="카드정책"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+</RelativeLayout>

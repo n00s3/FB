@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,6 +34,9 @@ public class LoginActivity extends AppCompatActivity {
         //초기화 Firebath Auth
         mAuth = FirebaseAuth.getInstance();
 
+        TextView txt = findViewById(R.id.txtDeviceID);
+        txt.setText(getDeviceID());
+
         findViewById(R.id.loginButton).setOnClickListener(onClickListener);
     }
 
@@ -40,6 +45,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
+    }
+
+    @Override public void onBackPressed() {
+        super.onBackPressed();
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -69,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                             loderLayout.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
-                                Log.d(TAG, "signInWithEmail:success");
+//                                Log.d(TAG, "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 startToast("로그인 성공");
                                 startMainActivity();
@@ -77,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                                 // If sign in fails, display a message to the user.
                                 if (task.getException() != null)
                                     startToast(task.getException().toString());
-                                Log.w(TAG, "signInWithEmail:failure", task.getException());
+//                                Log.w(TAG, "signInWithEmail:failure", task.getException());
                                 // ...
                             }
 
@@ -102,4 +114,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private String getDeviceID(){
+        return Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
+    }
 }

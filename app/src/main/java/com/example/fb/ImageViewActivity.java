@@ -34,8 +34,8 @@ public class ImageViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_view);
 
-        imageView = (ImageView)findViewById(R.id.imageView);
-        mSacleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
+        imageView = (ImageView)findViewById(R.id.photo_view);
+//        mSacleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
 
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -48,7 +48,7 @@ public class ImageViewActivity extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.d("Image", "err");
+//                Log.d("Image", "err");
             }
         });
     }
