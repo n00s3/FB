@@ -1,0 +1,3 @@
+python ./uploader.py
+
+pause
